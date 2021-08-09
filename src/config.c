@@ -51,6 +51,7 @@ void cfg_load()
     g_ddraw->fixpitch = cfg_get_bool("fixpitch", FALSE);
     g_ddraw->fixchildwindows = cfg_get_bool("fixchildwindows", TRUE);
     g_ddraw->fixwndprochook = cfg_get_bool("fixwndprochook", FALSE);
+    g_ddraw->fixmousehook = cfg_get_bool("fixmousehook", FALSE);
     g_ddraw->d3d9linear = cfg_get_bool("d3d9linear", TRUE);
     g_ddraw->gdilinear = cfg_get_bool("gdilinear", FALSE);
     g_ddraw->resolutions = cfg_get_int("resolutions", RESLIST_NORMAL);
@@ -707,6 +708,15 @@ static void cfg_create_ini()
             "adjmouse=true\n"
             "renderer=opengl\n"
             "\n"
+            "; Jagged Alliance 2\n"
+            "[ja2]\n"
+            "fixmousehook=true\n"
+            "\n"
+            "; Jagged Alliance 2: Wildfire\n"
+            "[WF6]\n"
+            "hook=2\n"
+            "fixmousehook=true\n"
+            "\n"
             "; Kings Quest 8\n"
             "[Mask]\n"
             "renderer=opengl\n"
@@ -888,6 +898,10 @@ static void cfg_create_ini()
             "; Warlords 3\n"
             "[Darklord]\n"
             "renderer=gdi\n"
+            "\n"
+            "; Wizardry 8\n"
+            "[Wiz8]\n"
+            "fixmousehook=true\n"
             "\n"
             "; Worms Armageddon\n"
             "[WA]\n"

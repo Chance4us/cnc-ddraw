@@ -119,6 +119,7 @@ typedef struct CNCDDRAW
     BOOL fixpitch;
     BOOL fixchildwindows;
     BOOL fixwndprochook;
+    BOOL fixmousehook;
     BOOL d3d9linear;
     BOOL gdilinear;
     int resolutions;
