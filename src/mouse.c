@@ -119,12 +119,7 @@ LRESULT CALLBACK mouse_hook_proc(int Code, WPARAM wParam, LPARAM lParam)
     }
     }
 
-    MOUSEHOOKSTRUCTEX mhook;
-    memcpy(&mhook, (void*)lParam, sizeof(MOUSEHOOKSTRUCTEX));
+    fake_GetCursorPos(&((MOUSEHOOKSTRUCT*)lParam)->pt);
 
-    fake_GetCursorPos(&((MOUSEHOOKSTRUCT*)&mhook)->pt);
-
-    LRESULT result = g_mouse_proc(Code, wParam, (LPARAM)&mhook);
-
-    return result == 1 ? CallNextHookEx(g_mouse_hook, Code, wParam, lParam) : result;
+    return g_mouse_proc(Code, wParam, lParam);
 }
