@@ -123,6 +123,7 @@ typedef struct CNCDDRAW
     BOOL nonexclusive;
     BOOL fixpitch;
     int fixchilds;
+    int sleep;
     BOOL fixwndprochook;
     BOOL fixnotresponding;
     BOOL d3d9linear;

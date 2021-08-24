@@ -56,6 +56,8 @@ void cfg_load()
     g_ddraw->gdilinear = cfg_get_bool("gdilinear", FALSE);
     g_ddraw->resolutions = cfg_get_int("resolutions", RESLIST_NORMAL);
 
+    g_ddraw->sleep = cfg_get_int("sleep", 0);
+
     g_ddraw->armadahack = cfg_get_bool("armadahack", FALSE);
     g_ddraw->tshack = cfg_get_bool("tshack", FALSE);
     g_ddraw->cnchack = cfg_get_bool("cnchack", FALSE);

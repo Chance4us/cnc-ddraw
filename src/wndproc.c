@@ -30,6 +30,15 @@ LRESULT CALLBACK fake_WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
     static BOOL in_size_move = FALSE;
     static int redraw_count = 0;
 
+    static DWORD last_tick;
+    DWORD cur_tick = timeGetTime();
+
+    if (g_ddraw->sleep && cur_tick > last_tick + 16)
+    {
+        last_tick = cur_tick;
+        Sleep(g_ddraw->sleep);
+    }
+
     switch (uMsg)
     {
     case WM_GETMINMAXINFO:
