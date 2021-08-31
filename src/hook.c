@@ -432,12 +432,12 @@ void hook_init()
 
 void hook_early_init()
 {
-    /**/
+    /*
     DetourTransactionBegin();
     DetourUpdateThread(GetCurrentThread());
     DetourAttach((PVOID*)&real_SetWindowsHookExA, (PVOID)fake_SetWindowsHookExA);
     DetourTransactionCommit();
-    
+    */
 
     hook_patch_iat(GetModuleHandle(NULL), FALSE, "ole32.dll", "CoCreateInstance", (PROC)fake_CoCreateInstance);
     hook_patch_iat(GetModuleHandle(NULL), FALSE, "dinput.dll", "DirectInputCreateA", (PROC)fake_DirectInputCreateA);
