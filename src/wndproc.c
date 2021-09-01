@@ -539,6 +539,19 @@ LRESULT CALLBACK fake_WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
                 break;
             }
 
+            /* jagged alliance 2 1.12
+            if (wParam)
+            {
+                INPUT ip;
+                memset(&ip, 0, sizeof(ip));
+
+                ip.type = INPUT_KEYBOARD;
+                ip.ki.wVk = VK_MENU;
+                ip.ki.dwFlags = KEYEVENTF_KEYUP;
+                SendInput(1, &ip, sizeof(ip));
+            }
+            */
+
             if (wParam && g_ddraw->alt_key_down)
                 PostMessageA(g_ddraw->hwnd, WM_SYSKEYUP, VK_MENU, 0);
 
